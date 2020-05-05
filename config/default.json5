@@ -24,7 +24,7 @@
 
     gameNode: {
         name: 'test1',
-        host: '127.0.0.1',
+        host: '::',
         socketioPort: 9500
 
         /*
