@@ -145,7 +145,7 @@ class App extends React.Component {
             console.log(url + '/' + server.name + '/socket.io')
 
             let gameSocket = io.connect(url, {
-                path: '/' + server.name + '/socket.io',
+                path: '/' + server.name + '/socket.io/?transport=polling',
                 reconnection: true,
                 reconnectionDelay: 1000,
                 reconnectionDelayMax: 5000,
