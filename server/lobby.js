@@ -401,9 +401,12 @@ class Lobby {
     onStartGame(socket, gameId) {
         var game = this.games[gameId];
 
+        console.log('onStartGame Checkpoint 1');
+
         if(!game || game.started) {
             return;
         }
+        console.log('onStartGame Checkpoint 2');
 
         if(_.any(game.getPlayers(), function(player) {
             return !player.deck;
@@ -411,21 +414,27 @@ class Lobby {
             return;
         }
 
+        console.log('onStartGame Checkpoint 3');
         if(!game.isOwner(socket.user.username)) {
             return;
         }
 
+        console.log('onStartGame Checkpoint 4');
         var gameNode = this.router.startGame(game);
         if(!gameNode) {
             return;
         }
 
+        console.log('onStartGame Checkpoint 5');
         game.node = gameNode;
         game.started = true;
 
+        console.log('onStartGame Checkpoint 6');
         this.broadcastGameList();
 
+        console.log('onStartGame Checkpoint 7');
         this.io.to(game.id).emit('handoff', { address: gameNode.address, port: gameNode.port, protocol: game.node.protocol, name: game.node.identity });
+        console.log('onStartGame Checkpoint 8');
     }
 
     onWatchGame(socket, gameId, password) {
