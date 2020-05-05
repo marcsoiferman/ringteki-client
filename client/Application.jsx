@@ -72,7 +72,8 @@ class App extends React.Component {
             }
         });
 
-        let queryString = this.props.token ? 'token=' + this.props.token + '&' : '';
+        let queryString = 'transport=polling&'; 
+        queryString += this.props.token ? 'token=' + this.props.token + '&' : '';
         queryString += 'version=' + version;
 
         let socket = io.connect(window.location.origin, {
@@ -145,7 +146,7 @@ class App extends React.Component {
             console.log(url + '/' + server.name + '/socket.io')
 
             let gameSocket = io.connect(url, {
-                path: '/' + server.name + '/socket.io/?transport=polling',
+                path: '/' + server.name + '/socket.io',
                 reconnection: true,
                 reconnectionDelay: 1000,
                 reconnectionDelayMax: 5000,
