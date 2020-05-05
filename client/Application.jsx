@@ -157,9 +157,10 @@ class App extends React.Component {
                 toastr.error('Connect Error', 'There was an error connecting to the game server: ' + err.message + '(' + err.description + ')');
             });
 
-            gameSocket.on('disconnect', () => {
+            gameSocket.on('disconnect', (err) => {
                 if(!gameSocket.gameClosing) {
                     toastr.error('Connection lost', 'You have been disconnected from the game server');
+                    console.log(err);
                 }
 
                 this.props.gameSocketDisconnect();
