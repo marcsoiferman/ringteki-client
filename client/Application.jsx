@@ -151,7 +151,7 @@ class App extends React.Component {
                 reconnectionDelay: 1000,
                 reconnectionDelayMax: 5000,
                 reconnectionAttempts: 5,
-                query: this.props.token ? 'token=' + this.props.token : undefined
+                query: 'transport=polling' + this.props.token ? '&token=' + this.props.token : ''
             });
 
             gameSocket.on('connect_error', (err) => {
