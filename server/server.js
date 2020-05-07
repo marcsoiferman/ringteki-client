@@ -126,7 +126,7 @@ class Server {
     run() {
         var port = config.lobby.port;
 
-        this.server.listen(port, '127.0.0.1', function onStart(err) {
+        this.server.listen(port, function onStart(err) {
             if(err) {
                 logger.error(err);
             }
