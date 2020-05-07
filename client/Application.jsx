@@ -72,8 +72,7 @@ class App extends React.Component {
             }
         });
 
-        let queryString = 'transport=polling&'; 
-        queryString += this.props.token ? 'token=' + this.props.token + '&' : '';
+        let queryString = this.props.token ? 'token=' + this.props.token + '&' : '';
         queryString += 'version=' + version;
 
         let socket = io.connect(window.location.origin, {
