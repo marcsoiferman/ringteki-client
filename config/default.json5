@@ -24,7 +24,7 @@
 
     gameNode: {
         name: 'test1',
-        host: 'ec2-18-191-42-231.us-east-2.compute.amazonaws.com/',
+        host: 'ec2-18-191-42-231.us-east-2.compute.amazonaws.com',
         socketioPort: 9500
 
         /*
